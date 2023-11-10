@@ -37,6 +37,9 @@
           </div>
         </li>
         <li class="nav-item">
+          <a class="nav-link <?php if ($page == 'signup'){ echo "active"; } else {echo "";}?>" href="signup.php">Become an Author?</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link <?php if ($page == 'login'){ echo "active"; } else {echo "";}?>" href="login.php">Login</a>
         </li>
       </ul>
