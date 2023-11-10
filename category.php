@@ -2,7 +2,8 @@
 include 'header.php';
 include 'config.php';
 
-$sql = "SELECT * FROM blog LEFT JOIN categories ON blog.category=categories.cat_id LEFT JOIN user ON blog.author_id=user.user_id ORDER BY blog.publish_date DESC";
+$id = $_GET['id'];
+$sql = "SELECT * FROM blog LEFT JOIN categories ON blog.category=categories.cat_id LEFT JOIN user ON blog.author_id=user.user_id WHERE categories.cat_id='$id' ORDER BY blog.publish_date DESC";
 $query = mysqli_query($config, $sql);
 $rows = mysqli_num_rows($query);
 
@@ -39,7 +40,7 @@ $rows = mysqli_num_rows($query);
 								<a href=""> <span><i class="fa fa-calendar-o" aria-hidden="true"></i></span> <?= $result['publish_date'] ?> </a>
 							</li>
 							<li>
-								<a href="category.php?id=<?= $result['cat_id'] ?>"> <span><i class="fa fa-tag" aria-hidden="true"></i></span> <?= $result['cat_name'] ?> </a>
+								<a href=""> <span><i class="fa fa-tag" aria-hidden="true"></i></span> <?= $result['cat_name'] ?> </a>
 						    </li>
 						</ul>
 					</div>
@@ -49,8 +50,6 @@ $rows = mysqli_num_rows($query);
                     }
                 }
             ?>
-			<!-- Pagination Begin -->
-			
 		</div>
         <?php include "sidebar.php"?>
 	</div>

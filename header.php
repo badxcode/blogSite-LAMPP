@@ -29,13 +29,14 @@
             <span class="visually-hidden">(current)</span>
           </a>
         </li>
-        <li class="nav-item dropdown">
+        <!-- nav categories -->
+        <!-- <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Categories</a>
           <div class="dropdown-menu">
             <a class="dropdown-item" href="#">Linux</a>
             <a class="dropdown-item" href="#">Windows</a>
           </div>
-        </li>
+        </li> -->
         <li class="nav-item">
           <a class="nav-link <?php if ($page == 'signup'){ echo "active"; } else {echo "";}?>" href="signup.php">Become an Author?</a>
         </li>
