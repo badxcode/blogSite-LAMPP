@@ -20,15 +20,15 @@ $rows = mysqli_num_rows($query);
 			<div class="card shadow">
 				<div class="card-body d-flex blog_flex">
 					<div class="flex-part1">
-						<a href=""> <img src="upload/<?= $result['blog_image'] ?>"> </a>
+						<a href="single_post.php?id=<?= $result['blog_id'] ?>"> <img src="upload/<?= $result['blog_image'] ?>"> </a>
 					</div>
 					<div class="flex-grow-1 flex-part2">
-						  <a href="" id="title"><?= $result['blog_title'] ?></a>
+						  <a href="single_post.php?id=<?= $result['blog_id'] ?>" id="title"><?= $result['blog_title'] ?></a>
 						<p>
-						  <a href="" id="body">
+						  <a href="single_post.php?id=<?= $result['blog_id'] ?>" id="body">
                           <?= strip_tags(substr($result['blog_body'], 0,200)).'...' ?></a> 
                           <span><br>
-                          <a href="" class="btn btn-sm btn-outline-primary">Continue Reading
+                          <a href="single_post.php?id=<?= $result['blog_id'] ?>" class="btn btn-sm btn-outline-primary">Continue Reading
                           </a></span>
                         </p>
 						<ul>
