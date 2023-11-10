@@ -32,7 +32,7 @@ $query = mysqli_query($config, $sql);
                             <input required type="file" name="blog_image" class="form-control">
                         </div>
                         <div class="mb-3">
-                            <select required class="form-control" name="" id="">
+                            <select required class="form-control" name="category" id="">
                                 <option value="">Select Category</option>
                                 <?php 
                                     while($cats = mysqli_fetch_assoc($query))
@@ -60,6 +60,8 @@ if (isset($_POST['add_blog']))
 {
     $title = $_POST['blog_title'];
     $body = $_POST['blog_body'];
+    $category = $_POST['category'];
+
     $filename = $_FILES['blog_image']['name'];
     $tmp_name = $_FILES['blog_image']['tmp_name'];
     $size = $_FILES['blog_image']['size'];
@@ -72,15 +74,35 @@ if (isset($_POST['add_blog']))
         if($size <= 200000)
         {
             move_uploaded_file($tmp_name, $destination);
+
+            $sql2 = "INSERT INTO blog(blog_title, blog_body, blog_image, category, author_id) VALUES('$title', '$body', '$filename', '$category', '$author_id')";
+            $query2 = mysqli_query($config, $sql2);
+            if ($query2)
+            {
+                $msg = ["Post published successfully.", "alert-success"];
+                $_SESSION['msg'] = $msg;
+                header('location: add_blog.php');
+            }
+            else 
+            {
+                $msg = ["Failed to publish post, try again.", "alert-danger"];
+                $_SESSION['msg'] = $msg;
+                header('location: add_blog.php');
+                
+            }
         }
         else 
         {
-            echo "Image size should not be greater than 2mb";
+            $msg = ["Image size should not be greater than 2mb.", "alert-danger"];
+            $_SESSION['msg'] = $msg;
+            header('location: add_blog.php');
         }
     }
     else 
     {
-        echo "File type is not allowed.";
+        $msg = ["File type is not allowed.", "alert-danger"];
+        $_SESSION['msg'] = $msg;
+        header('location: add_blog.php');
     }
 
 
