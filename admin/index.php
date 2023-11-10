@@ -38,7 +38,7 @@ if (isset($_SESSION['user_data']))
                             <th>Category</th>
                             <th>Author</th>
                             <th>Date & Time</th>
-                            <th colspan="2">Action</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -54,10 +54,10 @@ if (isset($_SESSION['user_data']))
                                     echo '
                                         <tr>
                                             <td>'.$result['blog_id'].'</td>
+                                            <td>'.$result['blog_title'].'</td>
                                             <td>'.$result['cat_name'].'</td>
                                             <td>'.$result['username'].'</td>
                                             <td>'.$result['publish_date'].'</td>
-                                            <td><a href="#" class="btn btn-sm btn-success">Edit</a></td>
                                             <td>
                                                 <form method="POST" class="mt-2">
                                                     <input type="hidden" name="id" value="'.$result['blog_id'].'">
@@ -71,7 +71,7 @@ if (isset($_SESSION['user_data']))
                             }
                             else 
                             {
-                                echo '<tr><td colspan="7">No records found</td></tr>';
+                                echo '<tr><td colspan="6">No records found</td></tr>';
                             }
 
                         ?>

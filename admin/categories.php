@@ -30,7 +30,7 @@
                         <tr>
                             <th>Sr.No</th>
                             <th>Category Name</th>
-                            <th colspan="2">Action</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -47,9 +47,6 @@
                                             <td>'.$rows['cat_id'].'</td>
                                             <td>'.$rows['cat_name'].'</td>
                                             <td>
-                                                <a href="#" class="btn btn-sm btn-success">Edit</a>
-                                            </td>
-                                            <td>
                                                 <form action="" method="POST">
                                                     <input type="hidden" name="catID" value="'.$rows['cat_id'].'">
                                                     <input type="submit" name="deleteCat" class="btn btn-sm btn-danger" value="Delete">
@@ -60,7 +57,7 @@
                             }
                             else 
                             {
-                                echo '<tr><td colspan=4>No Records Found</td></tr>';
+                                echo '<tr><td colspan=3>No Records Found</td></tr>';
                             }
                         ?>
                     </tbody>

@@ -15,17 +15,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>BlogSite Web Project</title>
   </head>
-  <body class="bg-light">
+  <body class="bg-secondary">
   <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
   <div class="container">
-    <a class="navbar-brand" href="#">Blog</a>
+    <a class="navbar-brand" href="index.php">TechBlog</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarColor02">
       <ul class="navbar-nav me-auto">
         <li class="nav-item">
-          <a class="nav-link <?php if ($page == 'index'){ echo "active"; } else {echo "";}?>" href="index.php">Home
+          <a class="nav-link pl-10 <?php if ($page == 'index'){ echo "active"; } else {echo "";}?>" href="index.php">Home
             <span class="visually-hidden">(current)</span>
           </a>
         </li>

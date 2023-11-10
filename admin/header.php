@@ -32,7 +32,7 @@ if (!isset($_SESSION['user_data']))
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="blog.php">
                <div class="sidebar-brand-icon rotate-n-15"> <i class="fa fa-smile-o"></i> </div>
-               <div class="sidebar-brand-text mx-3">Blog</div>
+               <div class="sidebar-brand-text mx-3">TechBlog</div>
             </a>
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
@@ -51,16 +51,6 @@ if (!isset($_SESSION['user_data']))
             </li>
             <!-- Divider -->
             <hr class="sidebar-divider">
-            <!-- Nav Item - Tables -->
-            <li class="nav-item">
-               <a class="nav-link collapsed" href=""> <span>Users</span> </a>
-            </li>
-            <!-- Divider -->
-            <hr class="sidebar-divider d-none d-md-block">
-            <!-- Sidebar Toggler (Sidebar) -->
-            <div class="text-center d-none d-md-inline">
-               <button class="rounded-circle border-0 fa-light fa-right-left" id="sidebarToggle"></button>
-            </div>
          </ul>
          <!-- End of Sidebar -->
          <!-- Content Wrapper -->
@@ -109,9 +99,6 @@ if (!isset($_SESSION['user_data']))
                         </span> <img class="img-profile rounded-circle" src="vendor/img/undraw_profile.svg"> </a>
                         <!-- Dropdown - User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                           <a class="dropdown-item" href="#"> <i class="fa fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Profile </a>
-                           <a class="dropdown-item" href="#"> <i class="fa fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i> Settings </a>
-                           <div class="dropdown-divider"></div>
                            <a class="dropdown-item" 
                               href="logout.php"> <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>Logout </a>
                         </div>
