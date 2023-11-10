@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>BlogSite Web Project</title>
   </head>
-  <body>
+  <body class="bg-light">
   <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
   <div class="container">
     <a class="navbar-brand" href="#">Blog</a>
@@ -44,8 +44,14 @@
           <a class="nav-link <?php if ($page == 'login'){ echo "active"; } else {echo "";}?>" href="login.php">Login</a>
         </li>
       </ul>
-      <form class="d-flex">
-        <input class="form-control me-sm-2" type="search" placeholder="Search">
+      <?php 
+        if (isset($_GET['keyword']))
+        {
+          $keyword = $_GET['keyword'];
+        }
+      ?>
+      <form class="d-flex" action="search.php" method="GET">
+        <input class="form-control me-sm-2" type="search" placeholder="Search" name="keyword" maxlength="50" autocomplete="off" value="<?= $keyword ?>" required>
         <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
       </form>
     </div>
