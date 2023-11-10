@@ -67,7 +67,7 @@ if (isset($_POST['add_blog']))
     $size = $_FILES['blog_image']['size'];
     $image_ext = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
     $allow_type = ['jpg', 'png', 'jpeg'];
-    $destination = "./upload/".$filename;
+    $destination = "../upload/".$filename;
 
     if(in_array($image_ext, $allow_type))
     {
