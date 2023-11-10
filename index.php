@@ -2,7 +2,19 @@
 include 'header.php';
 include 'config.php';
 
-$sql = "SELECT * FROM blog LEFT JOIN categories ON blog.category=categories.cat_id LEFT JOIN user ON blog.author_id=user.user_id ORDER BY blog.publish_date DESC";
+//pagination
+if (!isset($_GET['page']))
+{
+	$page = 1;
+}
+else 
+{
+	$page = $_GET['page'];
+}
+$limit = 5;
+$offset = ($page-1) * $limit;
+//------
+$sql = "SELECT * FROM blog LEFT JOIN categories ON blog.category=categories.cat_id LEFT JOIN user ON blog.author_id=user.user_id ORDER BY blog.publish_date DESC LIMIT $offset, $limit";
 $query = mysqli_query($config, $sql);
 $rows = mysqli_num_rows($query);
 
@@ -50,9 +62,37 @@ $rows = mysqli_num_rows($query);
                 }
             ?>
 			<!-- Pagination Begin -->
-			
+
+			<?php 
+				$pagination = "SELECT * FROM blog";
+				$run_q = mysqli_query($config, $pagination);
+				$total_post = mysqli_num_rows($run_q);
+				
+				$pages = ceil($total_post / $limit);
+				
+				if ($total_post > $limit) {
+
+			?>
+			<ul class="pagination pt-2 pb-5">
+				<?php 
+						for ($i=1; $i <= $pages; $i++) 
+						{
+				?>
+				<li class="page-item <?= ($i == $page) ? "active" : "" ?> ">
+					<a href="index.php?page=<?= $i ?>" class="page-link"><?= $i ?></a>
+				</li>
+				<?php 
+					}
+						}
+				?>
+
+			</ul>
+			<!-- ---------------- -->
 		</div>
         <?php include "sidebar.php"?>
 	</div>
 </div>
-<?php include 'footer.php'; ?>
+<?php
+include 'footer.php'; 
+
+?>
